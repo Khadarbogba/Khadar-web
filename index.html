@@ -302,7 +302,11 @@
               <img src="facebook.jpg">
               <img src="linkedin.jpg">
             </div>
-            <button >More about me</button>
+            
+          <button onclick="enableSound()">cod daar</button>
+
+         <audio id="wakeSound" src="cod.mp3" preload="auto"></audio>
+
             
           </p>
         </div>
@@ -466,6 +470,34 @@
         
     </main>
   </div>
-    
+    <script>
+      const audio = document.getElementById('wakeSound');
+    let soundEnabled = localStorage.getItem('soundEnabled') === 'true';
+
+    function enableSound() {
+      soundEnabled = true;
+      localStorage.setItem('soundEnabled', 'true');
+      audio.play().then(() => {
+        audio.pause(); // Unlock autoplay
+        alert("Sound enabled! Next time it will auto-play.");
+      }).catch(err => {
+        alert("Autoplay failed: " + err);
+      });
+    }
+
+    window.addEventListener('load', () => {
+      if (soundEnabled) {
+        audio.play().catch(err => {
+          console.log("Autoplay failed on load:", err);
+        });
+      }
+    });
+
+    document.addEventListener('visibilitychange', function () {
+      if (soundEnabled && !document.hidden) {
+        audio.play();
+      }
+    });
+    </script>
 </body>
 </html>
