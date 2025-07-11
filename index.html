@@ -511,37 +511,12 @@
   </div>
     <script>
     
-      const audio = document.getElementById('wakeSound');
-    let soundEnabled = localStorage.getItem('soundEnabled') === 'true';
-
+      
     function akh(){
       document.getElementById("start").style.display = "none";
       document.getElementById("site").style.display = "block";
     }
-      function soundEnabled(){
-      soundEnabled = true;
-      localStorage.setItem('soundEnabled', 'true');
-      audio.play().then(() => {
-        audio.pause(); // Unlock autoplay
-        alert("codka hada wa la daary marka danbe aad so labato waxaad maqli doonta cod macaan");
-      }).catch(err => {
-        alert("Autoplay failed: " + err);
-      });
-    }
-
-    window.addEventListener('load', () => {
-      if (soundEnabled) {
-        audio.play().catch(err => {
-          console.log("Autoplay failed on load:", err);
-        });
-      }
-    });
-
-    document.addEventListener('visibilitychange', function () {
-      if (soundEnabled && !document.hidden) {
-        audio.play();
-      }
-    });
+      
     </script>
 </body>
 </html>
