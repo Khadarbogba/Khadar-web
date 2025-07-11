@@ -5,11 +5,6 @@
   <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
   <title>khadar portfolio</title>
   <style>
-  *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-  }
 .hero {
     height: 100vh;
     display: flex;
@@ -38,6 +33,9 @@
   body{
     background:#081b29;
     color:white;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
   }
   .container{
     width:100%;
@@ -295,6 +293,9 @@
     text-decoration:none;
     width:100%;
   }
+    #site{
+      display:none;
+    }
   </style>
 </head>
 <body>
@@ -336,7 +337,7 @@
               <img src="linkedin.jpg">
               <img src="gmail.jpg">
             </div>
-
+           <button onclick="soundEnabled()">cod qurxoon daar</button>
          <audio id="wakeSound" src="Cod.mp3" preload="auto"></audio>
 
             
@@ -511,6 +512,8 @@
     function akh(){
       document.getElementById("start").style.display = "none";
       document.getElementById("site").style.display = "block";
+    }
+      function soundEnabled(){
       soundEnabled = true;
       localStorage.setItem('soundEnabled', 'true');
       audio.play().then(() => {
