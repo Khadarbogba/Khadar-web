@@ -24,6 +24,7 @@
 }
 .hero-content p, a{
   font-size:30px;
+  padding-bottom:20px;
 }
 .btn {
     background-color: #ff4d4d;
@@ -510,7 +511,33 @@
     </main>
   </div>
     <script>
-    
+    const audio = document.getElementById('wakeSound');
+    let soundEnabled = localStorage.getItem('soundEnabled') === 'true';
+
+    function enableSound() {
+      soundEnabled = true;
+      localStorage.setItem('soundEnabled', 'true');
+      audio.play().then(() => {
+        audio.pause(); // Unlock autoplay
+        alert("Sound enabled! Next time it will auto-play.");
+      }).catch(err => {
+        alert("Autoplay failed: " + err);
+      });
+    }
+
+    window.addEventListener('load', () => {
+      if (soundEnabled) {
+        audio.play().catch(err => {
+          console.log("Autoplay failed on load:", err);
+        });
+      }
+    });
+
+    document.addEventListener('visibilitychange', function () {
+      if (soundEnabled && !document.hidden) {
+        audio.play();
+      }
+    });
       
     function akh(){
       document.getElementById("start").style.display = "none";
