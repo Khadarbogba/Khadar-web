@@ -10,6 +10,31 @@
     padding:0;
     box-sizing:border-box;
   }
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #3f5efb, #fbab7e);
+}
+.hero-content {
+    position: absolute;
+    text-align: center;
+    color: white;
+}
+.btn {
+    background-color: #ff4d4d;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+.btn:hover {
+    background-color: #e63946;
+}
   body{
     background:#081b29;
     color:white;
@@ -273,7 +298,15 @@
   </style>
 </head>
 <body>
-  <div class="conainer">
+<section class="hero" id="start">
+  <div class="hero-content">
+    <h1>Welcome to Khadar World</h1>
+    <p>Kusoodhawoow Xalalka Halaburka Leh</p>
+    <a href="#" class="btn" onclick="akh()">Get Started</a>
+  </div>
+</section>
+  
+  <div class="conainer" id="site">
     <header>
       <div class="logo">
         <p>kha<span>darka</span></p>
@@ -301,9 +334,8 @@
               <img src="whatsapp.jpg">
               <img src="facebook.jpg">
               <img src="linkedin.jpg">
+              <img src="gmail.jpg">
             </div>
-            
-          <button onclick="enableSound()">cod daar</button>
 
          <audio id="wakeSound" src="Cod.mp3" preload="auto"></audio>
 
@@ -471,10 +503,14 @@
     </main>
   </div>
     <script>
+    
+    }
       const audio = document.getElementById('wakeSound');
     let soundEnabled = localStorage.getItem('soundEnabled') === 'true';
 
-    function enableSound() {
+    function akh(){
+      document.getElementById("start").style.display = "none";
+      document.getElementById("site").style.display = "block";
       soundEnabled = true;
       localStorage.setItem('soundEnabled', 'true');
       audio.play().then(() => {
