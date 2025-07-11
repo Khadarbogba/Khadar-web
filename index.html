@@ -5,46 +5,15 @@
   <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
   <title>khadar portfolio</title>
   <style>
-.hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(135deg, #3f5efb, #fbab7e);
-}
-.hero-content {
-    position: absolute;
-    text-align: center;
-    color: white;
-}
-    .hero-content h1{
-  font-size:50px;
-}
-.hero-content p, a{
-  font-size:30px;
-  padding-bottom:20px;
-}
-.btn {
-    background-color: #ff4d4d;
-    color: white;
-    padding: 15px 30px;
-    border-radius: 10px;
-    text-decoration: none;
-    transition: background-color 0.3s;
-}
-.btn:hover {
-    background-color: #e63946;
+*{
+  margin:0;
+    padding:0;
+    box-sizing:border-box;
+  }
 }
   body{
     background:#081b29;
     color:white;
-  }
-  *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
   }
   .container{
     width:100%;
@@ -302,20 +271,10 @@
     text-decoration:none;
     width:100%;
   }
-    #site{
-      display:none;
-    }
+  
   </style>
 </head>
 <body>
-<section class="hero" id="start">
-  <div class="hero-content">
-    <h1>Welcome to Khadar World</h1>
-    <p>Kusoodhawoow Xalalka Halaburka Leh</p>
-    <a href="#" class="btn" onclick="enableSound()">Get Started</a>
-  </div>
-</section>
-  
   <div class="conainer" id="site">
     <header>
       <div class="logo">
@@ -540,11 +499,6 @@
         audio.play();
       }
     });
-      
-    function akh(){
-      document.getElementById("start").style.display = "none";
-      document.getElementById("site").style.display = "block";
-    }
       
     </script>
 </body>
